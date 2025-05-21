@@ -13,7 +13,39 @@ class CourseDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(course.imagePath),
+          Stack(
+            children: [
+              Image.asset(course.imagePath),
+              Positioned(
+                top: 8,
+                right: 8,
+                child: GestureDetector(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Course bookmarked!'),
+                        duration: Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFECFAF4),
+                        borderRadius: BorderRadius.circular(4)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Icon(
+                        Icons.bookmark_border,
+                        color: Color(0xFF759083),
+                        size: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           SizedBox(
             height: 12,
           ),

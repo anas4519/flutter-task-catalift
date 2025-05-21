@@ -1,3 +1,4 @@
+import 'package:catalist_task_app/consts/consts.dart';
 import 'package:catalist_task_app/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +9,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF03045E)),
+          colorScheme: ColorScheme.fromSeed(seedColor: customBlue),
           useMaterial3: true,
         ),
         home: const MainPage());

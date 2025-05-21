@@ -1,6 +1,7 @@
 import 'package:catalist_task_app/pages/courses_page.dart';
 import 'package:catalist_task_app/pages/explore_mentors_page.dart';
 import 'package:catalist_task_app/pages/home/home_page.dart';
+import 'package:catalist_task_app/widgets/catalift_logo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,29 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List<Widget> pages = [];
   int _currIndex = 0;
+  final List<Widget> _actions = [
+    IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.account_circle_outlined,
+          color: Colors.white,
+          size: 28,
+        )),
+    IconButton(
+        onPressed: () {},
+        icon: Icon(
+          CupertinoIcons.bell,
+          color: Colors.white,
+          size: 28,
+        )),
+    IconButton(
+        onPressed: () {},
+        icon: Icon(
+          CupertinoIcons.chat_bubble_text,
+          color: Colors.white,
+          size: 28,
+        ))
+  ];
 
   @override
   void initState() {
@@ -23,8 +47,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
       body: IndexedStack(
         index: _currIndex,
@@ -32,79 +54,13 @@ class _MainPageState extends State<MainPage> {
       ),
       appBar: AppBar(
         backgroundColor: Color(0xFF03045E),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  'CATA',
-                  style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 3,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 2,
-                      color: Colors.white,
-                      margin: EdgeInsets.only(bottom: 2),
-                    ),
-                    Text(
-                      'LIFT',
-                      style: TextStyle(
-                        color: Colors.white,
-                        letterSpacing: 3,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+        title: CataliftLogo(),
         centerTitle: false,
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.account_circle_outlined,
-                color: Colors.white,
-                size: 28,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                CupertinoIcons.bell,
-                color: Colors.white,
-                size: 28,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                CupertinoIcons.chat_bubble_text,
-                color: Colors.white,
-                size: 28,
-              ))
-        ],
+        actions: _actions,
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Color(0xFF03045E),
-          boxShadow: [
-            BoxShadow(
-              color: theme.shadowColor.withOpacity(0.15),
-              blurRadius: 15,
-              offset: const Offset(0, -3),
-            ),
-          ],
         ),
         child: SafeArea(
           child: Padding(
@@ -122,7 +78,7 @@ class _MainPageState extends State<MainPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
-                        Icons.home_outlined,
+                        CupertinoIcons.home,
                         size: 32,
                         color: _currIndex == 0 ? Colors.white : Colors.grey,
                       ),

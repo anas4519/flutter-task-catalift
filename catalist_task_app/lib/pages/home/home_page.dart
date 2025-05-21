@@ -13,16 +13,28 @@ class HomePage extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
-          leading: Padding(
-            padding: EdgeInsets.only(left: 16),
+          toolbarHeight: 80,
+          leading: Container(
+            padding: EdgeInsets.only(left: 32, top: 8),
             child: Icon(
               Icons.arrow_back_ios,
               color: Color(0xFF03045E),
             ),
           ),
+          title: Container(
+            padding: EdgeInsets.only(top: 8),
+            child: Text(
+              'Courses',
+              style: TextStyle(
+                fontSize: 28,
+                color: Color(0xFF03045E),
+              ),
+            ),
+          ),
+          centerTitle: false,
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
+            Container(
+              padding: EdgeInsets.only(top: 8, right: 32),
               child: SvgPicture.asset(
                 'assets/icons/cart_icon.svg',
                 height: 32,
@@ -30,14 +42,6 @@ class HomePage extends StatelessWidget {
               ),
             )
           ],
-          title: Text(
-            'Courses',
-            style: TextStyle(
-              fontSize: 28,
-              color: Color(0xFF03045E),
-            ),
-          ),
-          centerTitle: false,
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(16),
