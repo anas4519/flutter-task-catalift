@@ -1,6 +1,6 @@
 import 'package:catalist_task_app/pages/courses_page.dart';
 import 'package:catalist_task_app/pages/explore_mentors_page.dart';
-import 'package:catalist_task_app/pages/home_page.dart';
+import 'package:catalist_task_app/pages/home/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -110,7 +110,7 @@ class _MainPageState extends State<MainPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
                   onTap: () {
