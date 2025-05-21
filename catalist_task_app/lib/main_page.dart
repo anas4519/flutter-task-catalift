@@ -2,8 +2,8 @@ import 'package:catalist_task_app/pages/courses_page.dart';
 import 'package:catalist_task_app/pages/explore_mentors_page.dart';
 import 'package:catalist_task_app/pages/home/home_page.dart';
 import 'package:catalist_task_app/widgets/catalift_logo.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,27 +16,33 @@ class _MainPageState extends State<MainPage> {
   List<Widget> pages = [];
   int _currIndex = 0;
   final List<Widget> _actions = [
-    IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.account_circle_outlined,
-          color: Colors.white,
-          size: 28,
-        )),
-    IconButton(
-        onPressed: () {},
-        icon: Icon(
-          CupertinoIcons.bell,
-          color: Colors.white,
-          size: 28,
-        )),
-    IconButton(
-        onPressed: () {},
-        icon: Icon(
-          CupertinoIcons.chat_bubble_text,
-          color: Colors.white,
-          size: 28,
-        ))
+    GestureDetector(
+      onTap: () {},
+      child: SvgPicture.asset(
+        'assets/icons/profile.svg',
+      ),
+    ),
+    SizedBox(
+      width: 16,
+    ),
+    GestureDetector(
+      onTap: () {},
+      child: SvgPicture.asset(
+        'assets/icons/bell.svg',
+      ),
+    ),
+    SizedBox(
+      width: 16,
+    ),
+    GestureDetector(
+      onTap: () {},
+      child: SvgPicture.asset(
+        'assets/icons/chat.svg',
+      ),
+    ),
+    SizedBox(
+      width: 16,
+    ),
   ];
 
   @override
@@ -77,9 +83,9 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
-                        CupertinoIcons.home,
-                        size: 32,
+                      SvgPicture.asset(
+                        'assets/icons/Home.svg',
+                        width: 32,
                         color: _currIndex == 0 ? Colors.white : Colors.grey,
                       ),
                       Text(
@@ -100,9 +106,9 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
-                        CupertinoIcons.compass,
-                        size: 32,
+                      SvgPicture.asset(
+                        'assets/icons/explore.svg',
+                        width: 32,
                         color: _currIndex == 1 ? Colors.white : Colors.grey,
                       ),
                       Text(
@@ -123,9 +129,9 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
-                        CupertinoIcons.book,
-                        size: 32,
+                      SvgPicture.asset(
+                        'assets/icons/courses.svg',
+                        width: 32,
                         color: _currIndex == 2 ? Colors.white : Colors.grey,
                       ),
                       Text(
