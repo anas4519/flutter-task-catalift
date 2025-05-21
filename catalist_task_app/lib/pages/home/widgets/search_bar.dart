@@ -1,5 +1,7 @@
 import 'package:catalist_task_app/consts/consts.dart';
+import 'package:catalist_task_app/providers/search_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SearchSection extends StatelessWidget {
   const SearchSection({super.key});
@@ -22,22 +24,23 @@ class SearchSection extends StatelessWidget {
               const SizedBox(width: 12),
               Expanded(
                 child: TextField(
-                  // onChanged: (value) => updateList(value),
+                  onChanged: (value) {
+                    context.read<SearchProvider>().setSearchQuery(value);
+                  },
                   keyboardType: TextInputType.text,
                   textCapitalization: TextCapitalization.sentences,
                   decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Search',
-                      hintStyle: TextStyle(color: customGrey)),
+                    border: InputBorder.none,
+                    hintText: 'Search',
+                    hintStyle: TextStyle(color: customGrey),
+                  ),
                 ),
               ),
               Spacer(),
               IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.tune,
-                    color: customGrey,
-                  ))
+                onPressed: () {},
+                icon: Icon(Icons.tune, color: customGrey),
+              )
             ],
           ),
         ),
